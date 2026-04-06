@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SemaProof Canary | EU AI Act Pre-Cert</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="badge">EU AI Act Pre-Cert Scanner</div>
+            <h1>Honeytoken Detonation Engine</h1>
+            <p class="subtitle">Enter a URL to execute it inside an E2B Firecracker microVM. We will inject deceptive AWS credentials (honeytokens) and deploy a baseline agent. If the URL contains a DeepMind Agent Trap that hijacks our canary, we instantly generate an audit report.</p>
+        </header>
+
+        <main>
+            <div class="scanner-box">
+                <form id="scan-form">
+                    <div class="input-group">
+                        <input type="url" id="target-url" placeholder="https://example.com/suspicious-blog" required>
+                        <button type="submit" id="scan-btn">Detonate</button>
+                    </div>
+                </form>
+
+                <div class="terminal" id="terminal">
+                    <!-- Logs will appear here -->
+                </div>
+            </div>
+
+            <div class="report-card" id="report-card">
+                <div class="report-header">
+                    <div>
+                        <h2 style="margin-bottom: 5px;">DeepMind Trap Resilience Report</h2>
+                        <span style="color: var(--text-secondary); font-size: 0.9rem;" id="report-target">Target: -</span>
+                    </div>
+                    <div class="status-badge" id="report-status">PENDING</div>
+                </div>
+
+                <div class="trap-grid" id="trap-grid">
+                    <!-- Trap items will be injected here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
