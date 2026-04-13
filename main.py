@@ -28,6 +28,10 @@ if not E2B_API_KEY:
 client = AsyncOpenAI(
     base_url="https://openrouter.ai/api/v1",
     api_key=OPENROUTER_API_KEY,
+    default_headers={
+        "HTTP-Referer": "https://github.com/yogami/eu-canary-scanner",
+        "X-Title": "SemaProof Gateway"
+    }
 )
 
 class ScanRequest(BaseModel):
@@ -132,7 +136,7 @@ async def run_scan(req: ScanRequest):
     sandbox = None
     try:
         # 1. Provision Firecracker MicroVM
-        sandbox = Sandbox.create()
+        sandbox = Sandbox()
         
         # 2. Inject Honeytoken
         sandbox.files.write(
